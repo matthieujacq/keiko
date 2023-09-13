@@ -1,15 +1,15 @@
 interface Props {
   name: string
-  number: number
+  id: number
 }
 
-export const Pokemon = ({ name, number }: Props) => {
-  const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`
+export const Pokemon = ({ name, id }: Props) => {
+  const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   return (
     <div>
-      <img alt="carapuce" src={src} />
+      <img alt={name} src={src} />
       <p>Name: {name}</p>
-      <p>Number: {number}</p>
+      <p>Number: {id}</p>
     </div>
   )
 }
