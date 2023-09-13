@@ -14,9 +14,12 @@ export const Home = () => {
   const [pokemons, setPokemons] = useState<PokemonInfo[]>([])
 
   useEffect(() => {
-    fetch("http://localhost:8000/pokemons")
-      .then(response => response.json())
-      .then(data => setPokemons(data))
+    const fetchPokemons = async () => {
+      const response = await fetch("http://localhost:8000/pokemons")
+      const data = await response.json()
+      setPokemons(data)
+    }
+    fetchPokemons()
   }, [])
 
   const onFilterUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
