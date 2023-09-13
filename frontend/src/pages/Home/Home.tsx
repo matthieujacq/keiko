@@ -12,15 +12,15 @@ const pokemons: Pokemon[] = [
   { name: "Tortank", id: 9 },
 ]
 
-function filterByName(pokemons: Pokemon[], filterValue: string) {
-  return pokemons.filter(({ name }) => name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
-}
-
 export const Home = () => {
   const [filterValue, setFilterValue] = useState("")
 
   const onFilterUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(event.target.value)
+  }
+
+  const filterByName = (pokemons: Pokemon[], filterValue: string) => {
+    return pokemons.filter(({ name }) => name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
   }
 
   return (
