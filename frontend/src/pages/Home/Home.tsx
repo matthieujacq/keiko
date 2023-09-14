@@ -3,6 +3,7 @@ import { PokemonCard } from "components/PokemonCard"
 import { Loader } from "components/Loader"
 import { useEffect, useState } from "react"
 import { ErrorMessage } from "components/ErrorMessage"
+import { Link } from "react-router-dom"
 
 export interface PokemonInfo {
   name: string
@@ -43,7 +44,9 @@ export const Home = () => {
       ) : (
         <div className={styles.pokemonList}>
           {pokemons.map(details => (
-            <PokemonCard {...details} key={details.id} />
+            <Link to={`/pokemon/${details.id}`} key={details.id}>
+              <PokemonCard {...details} />
+            </Link>
           ))}
         </div>
       )}
