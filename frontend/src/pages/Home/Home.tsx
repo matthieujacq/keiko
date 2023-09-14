@@ -1,5 +1,5 @@
 import styles from "./Home.module.css"
-import { Pokemon } from "components/Pokemon"
+import { PokemonCard } from "components/PokemonCard"
 import { Loader } from "components/Loader"
 import { useEffect, useState } from "react"
 
@@ -42,7 +42,7 @@ export const Home = () => {
       ) : (
         <div className={styles.pokemonList}>
           {pokemons.map(details => (
-            <Pokemon {...details} key={details.id} />
+            <PokemonCard {...details} key={details.id} />
           ))}
         </div>
       )}
