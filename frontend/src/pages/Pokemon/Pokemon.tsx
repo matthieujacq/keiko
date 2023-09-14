@@ -9,7 +9,7 @@ import { ErrorMessage } from "components/ErrorMessage"
 export const Pokemon = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [hasError, setHasError] = useState<boolean>(false)
-  const [pokemon, setPokemon] = useState<PokemonInfo | undefined>(undefined)
+  const [pokemon, setPokemon] = useState<PokemonInfo>()
 
   const { id } = useParams()
 
