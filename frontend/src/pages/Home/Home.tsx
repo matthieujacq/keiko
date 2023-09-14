@@ -12,13 +12,19 @@ export interface PokemonInfo {
 
 export const Home = () => {
   const [pokemons, setPokemons] = useState<PokemonInfo[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      const response = await fetch("http://localhost:8000/pokemons")
-      const data = await response.json()
-      setPokemons(data)
+      try {
+        setIsLoading(true)
+        const response = await fetch("http://localhost:8000/pokemons")
+        const data = await response.json()
+        setPokemons(data)
+      } catch (error) {
+        console.error(error)
+        // TODO: Handle error
+      }
       setIsLoading(false)
     }
     fetchPokemons()
@@ -28,8 +34,6 @@ export const Home = () => {
     <>
       <h1 className={styles.title}>Pokedex</h1>
       {isLoading ? (
-        // QUESTION: No transition ? (blinking loader not an issue ?)
-        // QUESTION: Can we have more readable code?
         <div className={styles.loaderContainer}>
           <img src={LoaderLogo} alt="loader" />
         </div>
