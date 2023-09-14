@@ -22,11 +22,13 @@ export const Home = () => {
   }, [])
 
   return (
-    <div className={styles.intro}>
-      <h1>Pokedex</h1>
-      {pokemons.map(({ name, id, weight, height }) => (
-        <PokemonInfo name={name} id={id} weight={weight} height={height} key={id} />
-      ))}
-    </div>
+    <>
+      <h1 className={styles.title}>Pokedex</h1>
+      <div className={styles.pokemonList}>
+        {pokemons.map(({ name, id, weight, height }) => (
+          <PokemonInfo name={name} id={id} weight={weight} height={height} key={id} />
+        ))}
+      </div>
+    </>
   )
 }
