@@ -12,12 +12,14 @@ export interface PokemonInfo {
 
 export const Home = () => {
   const [pokemons, setPokemons] = useState<PokemonInfo[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchPokemons = async () => {
       const response = await fetch("http://localhost:8000/pokemons")
       const data = await response.json()
       setPokemons(data)
+      setIsLoading(false)
     }
     fetchPokemons()
   }, [])
@@ -25,18 +27,19 @@ export const Home = () => {
   return (
     <>
       <h1 className={styles.title}>Pokedex</h1>
-      {pokemons.length === 0 && (
-        // QUESTION: No transition ?
-        // QUESTION: Would it be better to use a ternary and explicitely replace the list with the loader?
+      {isLoading ? (
+        // QUESTION: No transition ? (blinking loader not an issue ?)
+        // QUESTION: Can we have more readable code?
         <div className={styles.loaderContainer}>
           <img src={LoaderLogo} alt="loader" />
         </div>
+      ) : (
+        <div className={styles.pokemonList}>
+          {pokemons.map(({ name, id, weight, height }) => (
+            <PokemonInfo name={name} id={id} weight={weight} height={height} key={id} />
+          ))}
+        </div>
       )}
-      <div className={styles.pokemonList}>
-        {pokemons.map(({ name, id, weight, height }) => (
-          <PokemonInfo name={name} id={id} weight={weight} height={height} key={id} />
-        ))}
-      </div>
     </>
   )
 }
