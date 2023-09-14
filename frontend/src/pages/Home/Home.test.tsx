@@ -32,7 +32,7 @@ describe("<Home />", () => {
     // NOTE: screen.getByText would not wait for the API call to be resolved
     // hence the element would not be found in the DOM
     // we use screen.findByText instead
-    const bulbasaur = await screen.findByText("Name: bulbasaur")
+    const bulbasaur = await screen.findByText("bulbasaur")
     expect(bulbasaur).toBeInTheDocument()
   })
 })
