@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import styles from "./Pokemon.module.css"
 import { parse } from "path"
+import { ErrorMessage } from "components/ErrorMessage"
 
 export const Pokemon = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -40,7 +41,7 @@ export const Pokemon = () => {
         <Loader />
       ) : hasError || pokemon === undefined ? (
         // QUESTION: Is there a better way hint typescript that the pokemon isn't undefined?
-        <p>An error has occurred</p>
+        <ErrorMessage />
       ) : (
         <div className={styles.container}>
           <h1>{pokemon.name}</h1>

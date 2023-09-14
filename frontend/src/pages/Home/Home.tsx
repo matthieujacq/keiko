@@ -2,6 +2,7 @@ import styles from "./Home.module.css"
 import { PokemonCard } from "components/PokemonCard"
 import { Loader } from "components/Loader"
 import { useEffect, useState } from "react"
+import { ErrorMessage } from "components/ErrorMessage"
 
 export interface PokemonInfo {
   name: string
@@ -38,7 +39,7 @@ export const Home = () => {
       {isLoading ? (
         <Loader />
       ) : hasError ? (
-        <p className={styles.error}>An error has occurred</p>
+        <ErrorMessage />
       ) : (
         <div className={styles.pokemonList}>
           {pokemons.map(details => (

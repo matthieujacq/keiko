@@ -12,13 +12,3 @@
   gap: 10px;
   padding: 10px;
 }
-
-.error {
-  text-align: center;
-  font-size: 20px;
-  color: hsl(0, 95%, 22%);
-  background: hsl(0, 95%, 86%);
-  padding: 10px;
-  border-radius: 5px;
-  margin-inline: 20px;
-}
