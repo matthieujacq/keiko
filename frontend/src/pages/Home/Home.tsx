@@ -2,7 +2,7 @@ import styles from "./Home.module.css"
 import { Pokemon as PokemonInfo } from "components/Pokemon"
 import { useEffect, useState } from "react"
 
-interface PokemonInfo {
+export interface PokemonInfo {
   name: string
   id: number
   height: number
@@ -24,8 +24,8 @@ export const Home = () => {
   return (
     <div className={styles.intro}>
       <h1>Pokedex</h1>
-      {pokemons.map(({ name, id }) => (
-        <PokemonInfo name={name} id={id} key={id} />
+      {pokemons.map(({ name, id, weight, height }) => (
+        <PokemonInfo name={name} id={id} weight={weight} height={height} key={id} />
       ))}
     </div>
   )
