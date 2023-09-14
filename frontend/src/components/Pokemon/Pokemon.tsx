@@ -1,7 +1,6 @@
 import { PokemonInfo } from "pages/Home/Home"
 import styles from "./Pokemon.module.css"
 
-// QUESTION: Is that a good idea to use the same interface for the component props and the API response?
 type Props = PokemonInfo
 
 export const Pokemon = ({ name, id, weight, height }: Props) => {
