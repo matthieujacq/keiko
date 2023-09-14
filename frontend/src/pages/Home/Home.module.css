@@ -1,14 +1,15 @@
-.intro {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
+.title {
+  text-align: center;
+  margin-top: 40px;
 }
 
-.input {
-  border-width: 2px;
-  border-style: inset;
-  border-color: rgb(118, 118, 118);
-  border-image: initial;
+/* QUESION: Is the name ok ? */
+.pokemonList {
+  font-size: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
 }

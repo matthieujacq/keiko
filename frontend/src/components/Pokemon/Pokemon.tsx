@@ -1,15 +1,18 @@
-interface Props {
-  name: string
-  id: number
-}
+import { PokemonInfo } from "pages/Home/Home"
+import styles from "./Pokemon.module.css"
 
-export const Pokemon = ({ name, id }: Props) => {
+// QUESTION: Is that a good idea to use the same interface for the component props and the API response?
+type Props = PokemonInfo
+
+export const Pokemon = ({ name, id, weight, height }: Props) => {
   const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   return (
-    <div>
+    <div className={styles.card}>
+      <h2>{name}</h2>
       <img alt={name} src={src} />
-      <p>Name: {name}</p>
-      <p>Number: {id}</p>
+      <p>Id: {id}</p>
+      <p>Weight: {weight} kg</p>
+      <p>Height: {height} cm</p>
     </div>
   )
 }
