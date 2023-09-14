@@ -1,5 +1,5 @@
 import styles from "./Home.module.css"
-import LoaderLogo from "./loader.svg" // QUESTION: Shouldn't we put it in an assets folder?
+import LoaderLogo from "assets/loader.svg"
 import { Pokemon as PokemonInfo } from "components/Pokemon"
 import { useEffect, useState } from "react"
 
