@@ -1,6 +1,6 @@
 import styles from "./Home.module.css"
-import LoaderLogo from "assets/loader.svg"
 import { Pokemon as PokemonInfo } from "components/Pokemon"
+import { Loader } from "components/Loader"
 import { useEffect, useState } from "react"
 
 export interface PokemonInfo {
@@ -34,9 +34,7 @@ export const Home = () => {
     <>
       <h1 className={styles.title}>Pokedex</h1>
       {isLoading ? (
-        <div className={styles.loaderContainer}>
-          <img src={LoaderLogo} alt="loader" />
-        </div>
+        <Loader />
       ) : (
         <div className={styles.pokemonList}>
           {pokemons.map(({ name, id, weight, height }) => (
