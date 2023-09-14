@@ -1,9 +1,9 @@
 import { PokemonInfo } from "pages/Home/Home"
-import styles from "./Pokemon.module.css"
+import styles from "./PokemonCard.module.css"
 
 type Props = PokemonInfo
 
-export const Pokemon = ({ name, id, weight, height }: Props) => {
+export const PokemonCard = ({ name, id, weight, height }: Props) => {
   const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   return (
     <div className={styles.card}>

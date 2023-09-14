@@ -6,3 +6,8 @@
 body {
   font-family: "PokemonGB";
 }
+
+a {
+  all: unset;
+  cursor: pointer;
+}

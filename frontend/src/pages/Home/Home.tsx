@@ -1,7 +1,9 @@
 import styles from "./Home.module.css"
-import { Pokemon } from "components/Pokemon"
+import { PokemonCard } from "components/PokemonCard"
 import { Loader } from "components/Loader"
 import { useEffect, useState } from "react"
+import { ErrorMessage } from "components/ErrorMessage"
+import { Link } from "react-router-dom"
 
 export interface PokemonInfo {
   name: string
@@ -38,11 +40,13 @@ export const Home = () => {
       {isLoading ? (
         <Loader />
       ) : hasError ? (
-        <p className={styles.error}>An error has occurred</p>
+        <ErrorMessage />
       ) : (
         <div className={styles.pokemonList}>
           {pokemons.map(details => (
-            <Pokemon {...details} key={details.id} />
+            <Link to={`/pokemon/${details.id}`} key={details.id}>
+              <PokemonCard {...details} />
+            </Link>
           ))}
         </div>
       )}
