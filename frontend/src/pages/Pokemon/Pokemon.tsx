@@ -1,9 +1,8 @@
 import { Loader } from "components/Loader"
-import { PokemonInfo } from "pages/Home/Home"
+import { PokemonInfo } from "types"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import styles from "./Pokemon.module.css"
-import { parse } from "path"
 import { ErrorMessage } from "components/ErrorMessage"
 
 export const Pokemon = () => {
