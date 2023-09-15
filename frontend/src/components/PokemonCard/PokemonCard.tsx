@@ -17,4 +17,4 @@ const PokemonCardComponent = ({ name, id, weight, height }: Props) => {
   )
 }
 
-export const PokemonCard = Animate(PokemonCardComponent)
+export const PokemonCard = Animate(PokemonCardComponent, "tada")

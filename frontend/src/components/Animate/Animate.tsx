@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./Animate.module.css"
 
-export const Animate = <P extends object>(WrappedComponent: React.ComponentType<P>) => {
+export const Animate = <P extends object>(WrappedComponent: React.ComponentType<P>, animation: "tada" | "wobble") => {
   const AnimatedComponent = (props: P) => {
     const [isAnimated, setIsAnimated] = React.useState<boolean>(false)
 
@@ -9,7 +9,7 @@ export const Animate = <P extends object>(WrappedComponent: React.ComponentType<
       <div
         onMouseEnter={() => setIsAnimated(true)}
         onMouseLeave={() => setIsAnimated(false)}
-        className={isAnimated ? styles.tadaAnimation : ""}
+        className={isAnimated ? styles[`${animation}Animation`] : ""}
       >
         <WrappedComponent {...props} />
       </div>

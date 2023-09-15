@@ -8,4 +8,4 @@ const LogoComponent = () => (
   />
 )
 
-export const Logo = Animate(LogoComponent)
+export const Logo = Animate(LogoComponent, "wobble")
