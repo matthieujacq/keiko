@@ -19,8 +19,6 @@ export const Home = () => {
   const params = useParams()
   const page = +(params.page ?? 0)
 
-  console.log("params", params)
-
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
