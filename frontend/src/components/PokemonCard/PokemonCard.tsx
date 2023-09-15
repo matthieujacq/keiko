@@ -1,9 +1,10 @@
 import { PokemonInfo } from "types"
 import styles from "./PokemonCard.module.css"
+import { Animate } from "components/Animate"
 
 type Props = PokemonInfo
 
-export const PokemonCard = ({ name, id, weight, height }: Props) => {
+const PokemonCardComponent = ({ name, id, weight, height }: Props) => {
   const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   return (
     <div className={styles.card}>
@@ -15,3 +16,5 @@ export const PokemonCard = ({ name, id, weight, height }: Props) => {
     </div>
   )
 }
+
+export const PokemonCard = Animate(PokemonCardComponent, "tada")
