@@ -1,4 +1,4 @@
-import { PokemonInfo } from "pages/Home/Home"
+import { PokemonInfo } from "types"
 import styles from "./PokemonCard.module.css"
 
 type Props = PokemonInfo

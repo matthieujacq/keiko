@@ -4,13 +4,7 @@ import { Loader } from "components/Loader"
 import { useEffect, useState } from "react"
 import { ErrorMessage } from "components/ErrorMessage"
 import { Link, useParams } from "react-router-dom"
-
-export interface PokemonInfo {
-  name: string
-  id: number
-  height: number
-  weight: number
-}
+import { PokemonInfo } from "types"
 
 export const Home = () => {
   const [pokemons, setPokemons] = useState<PokemonInfo[]>([])
